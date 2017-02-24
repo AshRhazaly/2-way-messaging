@@ -12,44 +12,25 @@
 
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
     <body>
-        <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
+      <main class="col-xs-8 col-xs-offset-2 main-body">
+        <h1>Chatroom for awesome people!</h1>
+        <select id="user">
+        </select>
+        <br />
+        <br />
+        <section class="chatbox">
+          <p id ="sender">sender</p>
+          <p id ="receiver">receiver</p>
+        </section>
+        <input class="form-control" id="message" placeholder="Press enter to send.">
 
-        <!-- Add your site or application content here -->
-        <div class="chat">
- <header>
-   <div class="menu-icon"><span class="entypo-menu"></span></div>
-   <h1>Chats</h1>
- </header>
- <div class="new">
-   <p><span class="entypo-feather"></span> New Message</p>
- </div>
- <section class="messages">
-   <div class="message">
-     <img src="http://www.placecage.com/70/70"/>
-     <h2>Almighty Cage</h2>
-     <p>I am Nicolas, don't you know? I'm fuckin' famous...</p>
-     <p class="time"><span class="entypo-clock"></span> 5 mins ago</p>
-   </div>
-   <div class="message">
-     <img src="http://fillmurray.com/70/70"/>
-     <h2>The Murray</h2>
-     <p>Quiet there Cage! I'm even more famous than you...</p>
-     <p class="time"><span class="entypo-clock"></span> 3 mins ago</p>
-   </div>
-   <div class="message">
-     <img src="http://placeape.com/70/70"/>
-     <h2>Professor Ape</h2>
-     <p>You two act like monkeys and shit...</p>
-     <p class="time"><span class="entypo-clock"></span> just now</p>
-   </div>
- </section>
- <footer><p>end of messages</p></footer>
-</div>
+        </input>
+      </main>
         <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
         <script src="js/plugins.js"></script>
