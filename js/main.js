@@ -4,7 +4,7 @@ function displayUser (){
     success: function(data){
       $.each(data, function(key,value){
         var user_list = "";
-        user_list += "<option id=" + key + ">" + value.Nickname + "</option>";
+        user_list += "<option value=" + key + ">" + value.Nickname + "</option>";
         $("#user").append(user_list);
       });
     }
@@ -12,12 +12,31 @@ function displayUser (){
 }
 
 function sendMessage() {
-  $.ajax({
-    url:"https:chatroom-a6597.firebaseio.com/Name/" + $("#user").val(),
-    type: "POST",
-    success: function(data){
-      myMessage = {messages: $("#message").val()}
+  $("#message").keypress(function(e) {
+    if(e.which == 13) {
+      myMessage= {Messages : $("#message").val()};
+      $.ajax({
+        url:"https:chatroom-a6597.firebaseio.com/Name/" + $("#user").val() + ".json",
+        type: "POST",
+        data: JSON.stringify(myMessage)
+      });
+      $(".chatbox").children().empty();
+      displayMessage();
     }
+  });
+}
+
+function displayMessage(){
+  $.ajax({
+    url: "https:chatroom-a6597.firebaseio.com/Name/" + $("#user").val() + ".json",
+    success: function(data){
+      var messages = "";
+      $.each(data, function(key, value){
+        messages += "<p id=sender>" + value.Messages + "</p>";
+        $(".chatbox").append(messages);
+      })
+    }
+
   })
 }
 
@@ -33,5 +52,7 @@ function sendMessage() {
 
 
 $(document).ready(function(){
-  displayUser()
+  displayUser();
+  sendMessage();
+  displayMessage();
 });
